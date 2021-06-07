@@ -5252,19 +5252,20 @@ exit:
 
 static int cfg80211_rtw_del_station(struct wiphy *wiphy, 
                                     struct net_device *ndev, 
-                                    struct station_del_parameters *params)
+				    u8 *target_mac)
+                                    //struct station_del_parameters *params)
 {
 	int ret = 0;
 	_irqL irqL;
 	_list	*phead, *plist;
 	u8 updated = _FALSE;
-	const u8 *target_mac;
+	//const u8 *target_mac;
 	struct sta_info *psta = NULL;
 	_adapter *padapter = (_adapter *)rtw_netdev_priv(ndev);
 	struct mlme_priv *pmlmepriv = &(padapter->mlmepriv);
 	struct sta_priv *pstapriv = &padapter->stapriv;
 
-	target_mac = params->mac;
+	//target_mac = params->mac;
 
 	RTW_INFO("+"FUNC_NDEV_FMT" mac=%pM\n", FUNC_NDEV_ARG(ndev), target_mac);
 
